@@ -1,0 +1,20 @@
+.home {
+	display: flex;
+	flex: 1 1 auto;
+	z-index: 1;
+}
+.aws-btn {
+	--slider-height-percentage: calc(100vh - 62px);
+	--slider-transition-duration: 700ms;
+	--organic-arrow-thickness: 6px;
+	--organic-arrow-border-radius: 30px;
+	--organic-arrow-height: 32px;
+	--organic-arrow-color: #538bd5;
+	--control-button-width: 4%;
+	--control-button-height: 25%;
+	--control-button-background: transparent;
+	--content-background-color: white;
+}
+.awssld__timer {
+	display: none;
+}

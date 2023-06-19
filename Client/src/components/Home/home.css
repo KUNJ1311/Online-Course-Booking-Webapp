@@ -10,11 +10,13 @@
 	--organic-arrow-border-radius: 30px;
 	--organic-arrow-height: 32px;
 	--organic-arrow-color: #538bd5;
-	--control-button-width: 4%;
-	--control-button-height: 25%;
+	--control-button-width: 50px;
+	--control-button-height: 62px;
 	--control-button-background: transparent;
 	--content-background-color: white;
+	--loader-bar-color: transparent;
+	--loader-bar-height: 0px;
 }
 .awssld__timer {
-	display: none;
+	--timer-height: 0px !important;
 }

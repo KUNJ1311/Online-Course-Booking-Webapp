@@ -3,15 +3,16 @@
 	align-items: center;
 	width: 100vw;
 	height: 62px;
-	box-shadow: 2px 2px 2px rgba(35, 4, 64, 0.42);
+	box-shadow: 2px 2px 5px rgba(35, 4, 64, 0.42);
 	background-color: #e7f1fb;
 	color: #556270;
 	font-weight: 500;
 	z-index: 100;
+	font-family: var(--app-font);
 }
 .nav ul {
 	margin: 10px;
-	width: 100vw;
+	width: 100%;
 	justify-content: space-between;
 	align-items: center;
 	display: flex;
@@ -28,10 +29,12 @@
 	color: white;
 }
 .btn:hover {
+	cursor: pointer;
 	background-color: #2a3aa5;
-	transition: background-color 0.5s;
+	transition: background-color 0.3s ease-in-out;
 }
-.title {
+.title a {
 	font-size: 30px;
 	margin-left: 40px;
+	color: rgb(37, 38, 40);
 }

@@ -1,15 +1,58 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+:root {
+	--color-white: rgb(255, 255, 255);
+	--color-black: black;
+	--linear-grad: linear-gradient(to right, #141e30, #243b55);
+	--grad-clr1: #141e30;
+	--grad-clr2: #243b55;
+	--app-font: "Poppins", sans-serif;
+	--second-font: "Roboto Slab", serif;
+	--toastify-text-color-light: #2f2f2f !important;
+	--toastify-font-family: var(--second-font) !important;
+}
 * {
+	box-sizing: border-box;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
 	margin: 0;
 	padding: 0;
-	font-family: "Roboto", sans-serif;
 	font-size: 15px;
 }
 li {
 	list-style-type: none;
 }
+input,
+button {
+	font-family: var(--second-font);
+}
+
 #root {
 	display: flex;
 	flex-direction: column;
+}
+a {
+	text-decoration: none;
+	color: black;
+}
+
+::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: #2b2d31;
+	border-radius: 5px;
+	border: 2px solid transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #2b2d31;
+	border: 2px solid transparent;
+	border-radius: 5px;
+}
+
+.scroller-d:hover::-webkit-scrollbar-thumb {
+	background-color: #131416;
 }

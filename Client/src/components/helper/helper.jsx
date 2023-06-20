@@ -58,13 +58,28 @@ export const verifyPassword = async ({ email, password }) => {
 };
 
 //? update user function
-export const updateUser = async (data, msg) => {
+export const regform = async (email, fullname, phone, college, address) => {
+	const token = localStorage.getItem("coderToken");
 	try {
-		const token = localStorage.getItem("token");
-		const ndata = await axios.post(`${host}/api/updateUser`, data, msg, { headers: { Authorization: `Bearer ${token}` } });
-		return Promise.resolve({ ndata });
+		const { status } = await axios.post(
+			"http://localhost:8080/api/registerform",
+			{
+				email,
+				fullname,
+				phone,
+				college,
+				address,
+			},
+			{
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${token}`,
+				},
+			}
+		);
+		return Promise.resolve({ status });
 	} catch (error) {
-		return Promise.reject({ error: "Couldn't Update Profile..!" });
+		return Promise.reject(error.response?.data?.message || "Something went wrong");
 	}
 };
 

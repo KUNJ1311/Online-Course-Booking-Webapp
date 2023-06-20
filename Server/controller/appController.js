@@ -1,5 +1,5 @@
-import UserModal from "../model/User.modal.js";
-import OtpModal from "../model/Otp.modal.js";
+import DCUserModal from "../model/User.modal.js";
+import DCOtpModal from "../model/Otp.modal.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import ENV from "../config.js";
@@ -9,7 +9,7 @@ export async function verifyUser(req, res, next) {
 	try {
 		const { email } = req.method == "GET" ? req.query : req.body;
 		//* check the user existance
-		let exist = await UserModal.findOne({ email });
+		let exist = await DCUserModal.findOne({ email });
 		if (!exist) {
 			return res.status(404).send({ error: "Can't Find User!" });
 		}
@@ -25,7 +25,7 @@ export async function validateToken(req, res) {
 	try {
 		const decodedToken = jwt.verify(token, ENV.JWT_SECRET);
 		const userId = decodedToken.userId;
-		const user = await UserModal.findById(userId);
+		const user = await DCUserModal.findById(userId);
 		if (user) {
 			return res.status(200).send({ message: "Token is valid." });
 		} else {
@@ -41,12 +41,12 @@ export async function checkUser(req, res) {
 	try {
 		//* check the existing user
 		const { username, email } = req.body;
-		const existUsername = await UserModal.findOne({ username });
+		const existUsername = await DCUserModal.findOne({ username });
 		if (existUsername) {
 			return res.status(400).send({ msg: "Sorry a user with this Username is already exists" });
 		}
 		//* check the existing email
-		const existEmail = await UserModal.findOne({ email });
+		const existEmail = await DCUserModal.findOne({ email });
 		if (existEmail) {
 			return res.status(400).send({ msg: "Sorry E-mail Id is already exists" });
 		}
@@ -63,13 +63,13 @@ export async function register(req, res) {
 		if (password) {
 			const hashedPassword = await bcrypt.hash(password, 10);
 
-			const otpData = await OtpModal.findOne({ email });
+			const otpData = await DCOtpModal.findOne({ email });
 			if (!otpData || !otpData.verified || otpData.expiresIn < new Date(Date.now())) {
 				//* return error response if OTP is not verified
 				return res.status(401).send({ error: "Please verify your OTP first" });
 			}
 
-			const user = new UserModal({
+			const user = new DCUserModal({
 				username,
 				password: hashedPassword,
 				email,
@@ -77,7 +77,7 @@ export async function register(req, res) {
 
 			//* return save result as a response
 			await user.save();
-			await OtpModal.deleteOne({ email });
+			await DCOtpModal.deleteOne({ email });
 			res.status(201).send({ msg: "User Register Successfully" });
 		}
 	} catch (error) {
@@ -89,7 +89,7 @@ export async function register(req, res) {
 export async function login(req, res) {
 	const { email, password } = req.body;
 	try {
-		const user = await UserModal.findOne({ email });
+		const user = await DCUserModal.findOne({ email });
 		const passwordCheck = await bcrypt.compare(password, user.password);
 		if (!passwordCheck) {
 			return res.status(400).send({ error: "Don't have Password" });
@@ -114,6 +114,25 @@ export async function login(req, res) {
 		return res.status(500).send({ error });
 	}
 }
+//? POST: http://localhost:8080/api/registerform
+export async function regform(req, res) {
+	const { email, fullname, phone, college, address } = req.body;
+	try {
+		const user = await DCUserModal.findOneAndUpdate(
+			{ email },
+			{ fullname, phone, college, address },
+			{ new: true } // To return the updated user document
+		);
+
+		if (user) {
+			res.status(200).send({ success: true, user });
+		} else {
+			res.status(404).json({ success: false, message: "User not found" });
+		}
+	} catch (error) {
+		res.status(500).json({ success: false, error: error.message });
+	}
+}
 
 //? GET: http://localhost:8080/api/userdata
 export async function userdata(req, res) {
@@ -122,7 +141,7 @@ export async function userdata(req, res) {
 		//* retrive the user details of the logged in user
 		const decodedToken = jwt.verify(token, ENV.JWT_SECRET);
 		const id = decodedToken.userId;
-		const data = await UserModal.findOne({ _id: id });
+		const data = await DCUserModal.findOne({ _id: id });
 		//! remove password from user JSON
 		const { email, username } = Object.assign({}, data.toJSON());
 		return res.status(201).send({ email, username });
@@ -135,7 +154,7 @@ export async function userdata(req, res) {
 export async function getUser(req, res) {
 	try {
 		const { email } = req.params;
-		const user = await UserModal.findOne({ email });
+		const user = await DCUserModal.findOne({ email });
 		if (!user) {
 			return res.status(500).send({ msg: "Couldn't Find User" });
 		}
@@ -151,14 +170,14 @@ export async function getUser(req, res) {
 export async function generateOTP(req, res) {
 	try {
 		const { email } = req.query;
-		let user = await UserModal.findOne({ email });
+		let user = await DCUserModal.findOne({ email });
 		if (user) {
-			let otpData = await OtpModal.findOne({ email });
+			let otpData = await DCOtpModal.findOne({ email });
 			let otpCode;
 			if (!otpData) {
 				//* create new OTP object if it doesn't exist
 				otpCode = Math.floor(100000 + Math.random() * 900000);
-				otpData = new OtpModal({
+				otpData = new DCOtpModal({
 					email,
 					code: otpCode,
 					verified: false,
@@ -185,12 +204,12 @@ export async function generateOTP(req, res) {
 export async function generateOTPnewUser(req, res) {
 	try {
 		const { email } = req.query;
-		let otpData = await OtpModal.findOne({ email });
+		let otpData = await DCOtpModal.findOne({ email });
 		let otpCode;
 		if (!otpData) {
 			//* create new OTP object if it doesn't exist
 			otpCode = Math.floor(100000 + Math.random() * 900000);
-			otpData = new OtpModal({
+			otpData = new DCOtpModal({
 				email,
 				code: otpCode,
 				verified: false,
@@ -213,7 +232,7 @@ export async function generateOTPnewUser(req, res) {
 //? GET: http://localhost:8080/api/verifyOTP
 export async function verifyOTP(req, res) {
 	const { code, email } = req.query;
-	let otpData = await OtpModal.findOne({ email });
+	let otpData = await DCOtpModal.findOne({ email });
 	if (otpData.code === parseInt(code)) {
 		if (otpData.expiresIn < new Date().getTime()) {
 			//* if OTP is expired
@@ -228,44 +247,24 @@ export async function verifyOTP(req, res) {
 	}
 }
 
-//? PUT: http://localhost:8080/api/updateUser
-export async function updateUser(req, res) {
-	try {
-		const { userId } = req.user;
-		if (userId) {
-			const body = req.body;
-			//* update the data
-			const result = await UserModal.updateOne({ _id: userId }, body);
-			if (result.nModified === 0) {
-				return res.status(404).send({ error: "User not found" });
-			}
-			return res.status(201).send({ msg: "Record Updated..!" });
-		} else {
-			return res.status(401).send({ error: "User Not Found...!" });
-		}
-	} catch (error) {
-		return res.status(401).send(error);
-	}
-}
-
 //? PUT: http://localhost:8080/api/resetPassword
 export async function resetPassword(req, res) {
 	const { email, password } = req.body;
-	let otpData = await OtpModal.findOne({ email });
+	let otpData = await DCOtpModal.findOne({ email });
 	if (otpData && otpData.verified && otpData.expiresIn > new Date().getTime()) {
-		const user = await UserModal.findOne({ email });
+		const user = await DCUserModal.findOne({ email });
 		if (user) {
 			const hashedPassword = await bcrypt.hash(password, 10);
-			await UserModal.findOneAndUpdate({ email }, { password: hashedPassword });
+			await DCUserModal.findOneAndUpdate({ email }, { password: hashedPassword });
 			//* delete the OTP data
-			await OtpModal.deleteOne({ email });
+			await DCOtpModal.deleteOne({ email });
 			return res.status(201).send({ msg: "Record Updated Successfully" });
 		} else {
 			return res.status(401).send({ error: "User not found..!" });
 		}
 	} else {
 		if (otpData && otpData.expiresIn > new Date().getTime()) {
-			await OtpModal.deleteOne({ email });
+			await DCOtpModal.deleteOne({ email });
 			return res.status(401).send({ error: "OTP Expired..!" });
 		} else {
 			return res.status(401).send({ error: "Access Denied! Please verify the OTP first." });

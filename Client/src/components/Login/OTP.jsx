@@ -47,9 +47,9 @@ const OTP = (props) => {
 					if (status === 201) {
 						const { data, status } = await verifyPassword({ email, password });
 						if (status === 200) {
+							toast.info("Congratulations! Your account has been created successfully.");
 							localStorage.setItem("coderToken", data.token);
 							Navigate("/mainapp");
-							toast.info("Congratulations! Your account has been created successfully.");
 						}
 					}
 				}

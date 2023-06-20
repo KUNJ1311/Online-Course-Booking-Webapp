@@ -20,4 +20,4 @@ export const OtpSchema = new mongoose.Schema({
 	},
 });
 
-export default mongoose.model.Otps || mongoose.model("Otp", OtpSchema);
+export default mongoose.model.DCOtps || mongoose.model("DCOtp", OtpSchema);

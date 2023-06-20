@@ -15,7 +15,7 @@ router.route("/authenticate").post(controller.verifyUser, (req, res) => {
 });
 router.route("/login").post(controller.verifyUser, controller.login);
 router.route("/checkuser").post(controller.checkUser);
-
+router.route("/registerform").post(Auth, controller.regform);
 //? GET
 router.route("/user/:email").get(controller.getUser);
 router.route("/generateOTP").get(controller.generateOTP);
@@ -24,7 +24,6 @@ router.route("/generateOTP/newuser").get(controller.generateOTPnewUser);
 router.route("/userdata").get(controller.userdata);
 
 //? PUT
-router.route("/updateUser").put(Auth, controller.updateUser);
 router.route("/resetPassword").put(controller.resetPassword);
 
 export default router;

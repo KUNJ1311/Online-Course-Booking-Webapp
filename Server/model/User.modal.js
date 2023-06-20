@@ -16,6 +16,22 @@ export const UserSchema = new mongoose.Schema({
 		required: { true: "Please provide a unique email" },
 		unique: true,
 	},
+	fullname: {
+		type: String,
+		default: "",
+	},
+	phone: {
+		type: Number,
+		default: "",
+	},
+	college: {
+		type: String,
+		default: "",
+	},
+	address: {
+		type: String,
+		default: "",
+	},
 });
 
-export default mongoose.model.Users || mongoose.model("User", UserSchema);
+export default mongoose.model.DCUsers || mongoose.model("DCUser", UserSchema);

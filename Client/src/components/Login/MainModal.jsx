@@ -13,7 +13,6 @@ export default function MainModal({ onClose }) {
 	const [forgetValue, setForgetValue] = useState(false);
 	const [sendOTP, setSendOTP] = useState(false);
 	const [rePassword, setRePassword] = useState(false);
-
 	function togglePanel() {
 		setIsActive(!isActive);
 		setIsScaled(!isScaled);
@@ -38,23 +37,25 @@ export default function MainModal({ onClose }) {
 	return (
 		<>
 			<section className="sec" onClick={onClose}>
-				<div className={`container fade-in ${isActive ? "right-panel-active" : ""}`} id="container" onClick={(e) => e.stopPropagation()}>
-					{registerValue ? <OTP side={"sign-up-container"} /> : <Signup OnRegister={OnRegister} />}
-					{forgetValue ? sendOTP ? rePassword ? <ChangePass /> : <OTP side={"sign-in-container"} handleVerify={RePass} /> : <ForgetPass OnSend={OnSend} /> : <Login OnForget={OnForget} />}
-					<div className="overlay-container" id="overlayCon">
-						<div className="overlay">
-							<div className="overlay-panel overlay-left">
-								<h1 className="h">Welcome Back!</h1>
-								<p>To keep connected with us please login with your personal info</p>
-								<button className="robtn">Login In</button>
+				<div className="scroll-container">
+					<div className={`container fade-in ${isActive ? "right-panel-active" : ""}`} id="container" onClick={(e) => e.stopPropagation()}>
+						{registerValue ? <OTP side={"sign-up-container"} /> : <Signup OnRegister={OnRegister} />}
+						{forgetValue ? sendOTP ? rePassword ? <ChangePass /> : <OTP side={"sign-in-container"} handleVerify={RePass} /> : <ForgetPass OnSend={OnSend} /> : <Login OnForget={OnForget} />}
+						<div className="overlay-container" id="overlayCon">
+							<div className="overlay">
+								<div className="overlay-panel overlay-left">
+									<h1 className="h">Welcome Back!</h1>
+									<p>To keep connected with us please login with your personal info</p>
+									<button className="robtn">Login In</button>
+								</div>
+								<div className="overlay-panel overlay-right">
+									<h1 className="h">Hello, Friend!</h1>
+									<p>Enter your personal details and start journey with us</p>
+									<button className="robtn">Register</button>
+								</div>
 							</div>
-							<div className="overlay-panel overlay-right">
-								<h1 className="h">Hello, Friend!</h1>
-								<p>Enter your personal details and start journey with us</p>
-								<button className="robtn">Register</button>
-							</div>
+							<button className="overlayBtn" onClick={togglePanel} id="overlayBtn"></button>
 						</div>
-						<button className="overlayBtn" onClick={togglePanel} id="overlayBtn"></button>
 					</div>
 				</div>
 			</section>

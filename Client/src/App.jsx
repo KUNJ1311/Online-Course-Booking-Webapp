@@ -6,6 +6,9 @@ import UserState from "./components/context/UserState";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthorizeUser } from "./components/middleware/auth";
+import About from "./components/MainApp/About";
+import Profile from "./components/MainApp/Profile";
+import Contact from "./components/MainApp/Contact";
 function App() {
 	return (
 		<>
@@ -22,6 +25,30 @@ function App() {
 							element={
 								<AuthorizeUser>
 									<MainApp />
+								</AuthorizeUser>
+							}
+						/>
+						<Route
+							path="/about"
+							element={
+								<AuthorizeUser>
+									<About />
+								</AuthorizeUser>
+							}
+						/>
+						<Route
+							path="/contact"
+							element={
+								<AuthorizeUser>
+									<Contact />
+								</AuthorizeUser>
+							}
+						/>
+						<Route
+							path="/profile"
+							element={
+								<AuthorizeUser>
+									<Profile />
 								</AuthorizeUser>
 							}
 						/>

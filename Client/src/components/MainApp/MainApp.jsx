@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Form from "../Login/Form";
 import { userData } from "../helper/helper";
+import Nav from "./Nav/Nav";
+import HomeMain from "./HomeMain/HomeMain";
 
 const MainApp = () => {
 	const [adduserData, setAddUserData] = useState(null);
@@ -27,7 +29,8 @@ const MainApp = () => {
 	}, []);
 	return (
 		<>
-			<div>MainApp</div>
+			<Nav />
+			<HomeMain />
 			{!formSubmitted && <Form data={adduserData} setFormSubmitted={setFormSubmitted} />}
 		</>
 	);

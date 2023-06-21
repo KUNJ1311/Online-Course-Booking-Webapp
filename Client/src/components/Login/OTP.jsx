@@ -65,7 +65,6 @@ const OTP = (props) => {
 				const { status } = await verifyOTP({ email, code });
 				if (status === 200) {
 					toast.success("Verifed Successfully..!");
-					setShowModal(false);
 					props.handleVerify(true);
 				}
 			} catch (error) {

@@ -8,7 +8,7 @@ import { resetPassword, verifyPassword } from "../helper/helper";
 const ChangePass = () => {
 	const Navigate = useNavigate();
 	const context = useContext(userContext);
-	const { setCredentials, credentials } = context;
+	const { setCredentials, credentials, setShowModal } = context;
 	const { password, repassword, email } = credentials;
 
 	//* set email, password, re-enter password in credentials
@@ -26,6 +26,7 @@ const ChangePass = () => {
 					const { data, status } = await verifyPassword({ email, password });
 					if (status === 200) {
 						localStorage.setItem("coderToken", data.token);
+						setShowModal(false);
 						Navigate("/mainapp");
 					}
 					toast.success("Password Changed Successfully..!");

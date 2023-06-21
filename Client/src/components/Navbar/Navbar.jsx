@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
 import MainModal from "../Login/MainModal";
@@ -8,7 +8,7 @@ const Navbar = () => {
 	const { handleClick, handleCloseModal, showModal, modal } = context;
 	useEffect(() => {
 		modal();
-	}, [showModal]);
+	}, [modal, showModal]);
 
 	return (
 		<>

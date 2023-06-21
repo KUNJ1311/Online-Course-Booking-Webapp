@@ -7,7 +7,7 @@ const Portfolio = () => {
 	const allNavList = ["all", ...new Set(projects.map((project) => project.category))];
 
 	const [projectItems, setMenuItems] = useState(projects);
-	const [navList, setCategories] = useState(allNavList);
+	const [navList] = useState(allNavList);
 
 	const filterItems = (category) => {
 		if (category === "all") {

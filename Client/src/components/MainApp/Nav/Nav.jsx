@@ -9,7 +9,7 @@ const Nav = () => {
 	const { handleClick, handleCloseModal, showModal, modal } = context;
 	useEffect(() => {
 		modal();
-	}, [showModal]);
+	}, [modal, showModal]);
 	const [click, setClick] = useState(false);
 	const location = useLocation();
 	const [active, setActive] = useState(0);

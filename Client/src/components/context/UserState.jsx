@@ -6,6 +6,29 @@ import { toast } from "react-toastify";
 const UserState = (props) => {
 	const [credentials, setCredentials] = useState({ email: "", password: "", username: "", repassword: "" });
 	const { email, password, username } = credentials;
+	const [showModal, setShowModal] = useState(false);
+
+	//* Get Started to login
+	const handleClick = () => {
+		setShowModal(true);
+	};
+
+	//* Close login page
+	const handleCloseModal = () => {
+		setShowModal(false);
+	};
+	const modal = () => {
+		const handleKeyDown = (event) => {
+			if (event.key === "Escape") {
+				handleCloseModal();
+			}
+		};
+		if (showModal) {
+			document.addEventListener("keydown", handleKeyDown);
+		} else {
+			document.removeEventListener("keydown", handleKeyDown);
+		}
+	};
 
 	//* Register user
 	const Register = async ({ OnRegister }) => {
@@ -29,6 +52,6 @@ const UserState = (props) => {
 			return { error };
 		}
 	};
-	return <UserContext.Provider value={{ credentials, setCredentials, Register }}>{props.children}</UserContext.Provider>;
+	return <UserContext.Provider value={{ credentials, setCredentials, Register, modal, handleClick, setShowModal, showModal, handleCloseModal }}>{props.children}</UserContext.Provider>;
 };
 export default UserState;

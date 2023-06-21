@@ -10,7 +10,7 @@ const MainApp = () => {
 	//* Getting user data
 	useEffect(() => {
 		const checkFormSubmitted = localStorage.getItem("form");
-		if (checkFormSubmitted) {
+		if (checkFormSubmitted === "true") {
 			setFormSubmitted(true);
 		} else {
 			setFormSubmitted(false);

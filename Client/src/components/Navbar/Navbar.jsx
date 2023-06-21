@@ -1,32 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
 import MainModal from "../Login/MainModal";
+import userContext from "../context/userContext";
 const Navbar = () => {
-	const [showModal, setShowModal] = useState(false);
-
-	//* Get Started to login
-	const handleClick = () => {
-		setShowModal(true);
-	};
-
-	//* Close login page
-	const handleCloseModal = () => {
-		setShowModal(false);
-	};
-
-	//* Close login page with ESC Key
+	const context = useContext(userContext);
+	const { handleClick, handleCloseModal, showModal, modal } = context;
 	useEffect(() => {
-		const handleKeyDown = (event) => {
-			if (event.key === "Escape") {
-				handleCloseModal();
-			}
-		};
-		if (showModal) {
-			document.addEventListener("keydown", handleKeyDown);
-		} else {
-			document.removeEventListener("keydown", handleKeyDown);
-		}
+		modal();
 	}, [showModal]);
 
 	return (

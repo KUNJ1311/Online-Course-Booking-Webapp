@@ -1,0 +1,77 @@
+import cyber from "./assets/cyber.jpeg";
+import web from "./assets/web.png";
+import wordpress from "./assets/wordpress.jpeg";
+export const projects = [
+	{
+		id: 1,
+		img: cyber,
+		category: "Cyber Security",
+		title: "1 Month Course",
+		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+		link: `https://coderspoint.in`,
+	},
+	{
+		id: 2,
+		img: cyber,
+		category: "Cyber Security",
+		title: "3 Month Course",
+		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+		link: ``,
+	},
+	{
+		id: 3,
+		img: cyber,
+		category: "Cyber Security",
+		title: "6 Month Course",
+		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+		link: `https://github.com/KUNJ1311/Library_M_S`,
+	},
+	{
+		id: 4,
+		img: web,
+		category: "Web Technology",
+		title: "1 Month Course",
+		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+		link: `https://github.com/KUNJ1311/iNotebook`,
+	},
+	{
+		id: 5,
+		img: web,
+		category: "Web Technology",
+		title: "3 Month Course",
+		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+		link: `https://github.com/KUNJ1311/News-Website`,
+	},
+	{
+		id: 6,
+		img: web,
+		category: "Web Technology",
+		title: "6 Month Course",
+		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+		link: `https://github.com/KUNJ1311/News-Website`,
+	},
+	{
+		id: 7,
+		img: wordpress,
+		category: "WordPress",
+		title: "1 Month Course",
+		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+		link: `https://github.com/KUNJ1311/News-Website`,
+	},
+	{
+		id: 8,
+		img: wordpress,
+		category: "WordPress",
+		title: "3 Month Course",
+		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+		link: `https://github.com/KUNJ1311/News-Website`,
+	},
+	{
+		id: 9,
+		img: wordpress,
+		category: "WordPress",
+		title: "6 Month Course",
+		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+		link: `https://github.com/KUNJ1311/News-Website`,
+	},
+];

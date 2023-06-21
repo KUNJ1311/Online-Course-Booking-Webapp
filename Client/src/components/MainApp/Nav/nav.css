@@ -6,6 +6,7 @@
 	align-items: center;
 	font-size: 1.2rem;
 	position: sticky;
+	box-shadow: 2px 3px 5px #000000ad;
 	top: 0;
 	z-index: 20;
 	font-family: var(--second-font);
@@ -47,6 +48,9 @@
 }
 
 .nav-links {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	color: #fff;
 	text-decoration: none;
 	padding: 0.5rem 1rem;
@@ -63,6 +67,7 @@
 }
 
 .nav-item:after {
+	transform: translateY(-16px);
 	content: "";
 	display: block;
 	height: 3px;
@@ -125,4 +130,8 @@
 		cursor: pointer;
 		margin-right: 20px;
 	}
+}
+.profile-ico {
+	display: flex;
+	margin: 0 !important;
 }

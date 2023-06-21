@@ -1,8 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./nav.css";
-
+import userContext from "../../context/userContext";
+import ProfileModal from "../ProfileModal";
+import avatar from "../../Login/avatar.svg";
 const Nav = () => {
+	const context = useContext(userContext);
+	const { handleClick, handleCloseModal, showModal, modal } = context;
+	useEffect(() => {
+		modal();
+	}, [showModal]);
 	const [click, setClick] = useState(false);
 	const location = useLocation();
 	const [active, setActive] = useState(0);
@@ -20,11 +27,11 @@ const Nav = () => {
 		}
 	}, [location]);
 
-	const handleClick = () => setClick(!click);
+	const handleClickNav = () => setClick(!click);
 	const Close = () => setClick(false);
 
 	return (
-		<div>
+		<>
 			<div className={click ? "main-container" : ""} onClick={Close} />
 			<nav className="navbar" onClick={(e) => e.stopPropagation()}>
 				<div className="nav-container">
@@ -47,13 +54,15 @@ const Nav = () => {
 								Contact Us
 							</Link>
 						</li>
-						<li className={active === 4 ? "nav-item-active nav-item" : "nav-item"}>
-							<Link to="/Profile" className="nav-links">
-								Profile
+						<li className={"p-ico"} onClick={handleClick}>
+							<Link className="nav-links">
+								<div className="social-container profile-ico">
+									<img src={avatar} alt="" width="55px" height="55px" />
+								</div>
 							</Link>
 						</li>
 					</ul>
-					<div className="nav-icon" onClick={handleClick}>
+					<div className="nav-icon" onClick={handleClickNav}>
 						<div
 							style={{
 								width: "24px",
@@ -111,7 +120,8 @@ const Nav = () => {
 					</div>
 				</div>
 			</nav>
-		</div>
+			{showModal && <ProfileModal onClose={handleCloseModal} />}
+		</>
 	);
 };
 

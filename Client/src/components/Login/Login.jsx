@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import avatar from "./avatar.svg";
 import { useNavigate } from "react-router-dom";
 import { IoLockClosed } from "react-icons/io5";
 import { MdMail } from "react-icons/md";
 import { verifyPassword } from "../helper/helper";
 import { toast } from "react-toastify";
+import userContext from "../context/userContext";
 
 const Login = ({ OnForget }) => {
+	const context = useContext(userContext);
+	const { setShowModal } = context;
 	let Navigate = useNavigate();
 	const [credentials, setCredentials] = useState({ email: "", password: "" });
 
@@ -20,6 +23,7 @@ const Login = ({ OnForget }) => {
 		e.preventDefault();
 		try {
 			const { data } = await verifyPassword(credentials);
+			setShowModal(false);
 			localStorage.setItem("coderToken", data.token);
 			Navigate("/mainapp");
 			toast.success("Logged in successfully..!");

@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 const OTP = (props) => {
 	const Navigate = useNavigate();
 	const context = useContext(userContext);
-	const { credentials } = context;
+	const { credentials, setShowModal } = context;
 	const { email, password } = credentials;
 	const [otp, setOtp] = useState(new Array(6).fill(""));
 	const [timer, setTimer] = useState(100);
@@ -49,6 +49,7 @@ const OTP = (props) => {
 						if (status === 200) {
 							toast.info("Congratulations! Your account has been created successfully.");
 							localStorage.setItem("coderToken", data.token);
+							setShowModal(false);
 							Navigate("/mainapp");
 						}
 					}
@@ -64,6 +65,7 @@ const OTP = (props) => {
 				const { status } = await verifyOTP({ email, code });
 				if (status === 200) {
 					toast.success("Verifed Successfully..!");
+					setShowModal(false);
 					props.handleVerify(true);
 				}
 			} catch (error) {

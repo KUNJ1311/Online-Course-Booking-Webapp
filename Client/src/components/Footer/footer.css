@@ -27,8 +27,9 @@
 /* The company logo */
 
 .footer-distributed h3 {
-	color: #ffffff;
-	font: normal 36px "Open Sans", cursive;
+	color: #f5b921;
+	font: normal 36px var(--app-font);
+	font-weight: 500;
 	margin: 0;
 }
 
@@ -36,27 +37,16 @@
 	color: lightseagreen;
 }
 
-/* Footer links */
-
-.footer-distributed .footer-links {
-	color: #ffffff;
-	margin: 20px 0 12px;
-	padding: 0;
-}
-
-.footer-distributed .footer-links a {
-	display: inline-block;
-	line-height: 1.8;
-	font-weight: 400;
-	text-decoration: none;
-	color: inherit;
-}
-
 .footer-distributed .footer-company-name {
 	color: lightseagreen;
 	font-size: 14px;
 	font-weight: normal;
-	margin: 0;
+	margin: 20px 0 0;
+}
+.footer-distributed .footer-company-name a {
+	color: rgb(0, 255, 242);
+	font-size: 14px;
+	font-weight: 600;
 }
 
 /* Footer Center */

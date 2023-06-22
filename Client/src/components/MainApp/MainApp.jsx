@@ -7,7 +7,7 @@ import Footer from "../Footer/Footer";
 
 const MainApp = () => {
 	const [adduserData, setAddUserData] = useState(null);
-	const [formSubmitted, setFormSubmitted] = useState(false);
+	const [formSubmitted, setFormSubmitted] = useState(true);
 	//* Getting user data
 	useEffect(() => {
 		const GetData = async () => {

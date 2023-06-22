@@ -7,24 +7,14 @@ import "./footer.css";
 import { IoLocationSharp } from "react-icons/io5";
 import { RiPhoneFill } from "react-icons/ri";
 import { MdMail } from "react-icons/md";
-
 const Footer = () => {
 	return (
 		<footer className="footer-distributed">
 			<div className="footer-left">
-				<h3>
-					Company<span>logo</span>
-				</h3>
-
-				<p className="footer-links">
-					<a href="#" className="link-1">
-						Home
-					</a>
-					<a href="#"> About</a>
-					<a href="#"> Contact</a>
+				<h3>DC4 IT SOLUTIONS</h3>
+				<p className="footer-company-name">
+					Developed by <a href="https://github.com/KUNJ1311">Kunj Faladu</a> &copy; 2023
 				</p>
-
-				<p className="footer-company-name">Company Name © 2015</p>
 			</div>
 
 			<div className="footer-center">

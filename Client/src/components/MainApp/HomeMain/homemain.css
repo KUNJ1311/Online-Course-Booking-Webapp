@@ -77,7 +77,7 @@
 
 .portfolio_list-item {
 	color: var(--title-color);
-	font-size: var(--tiny-font-size);
+	font-size: 14px;
 	font-weight: 700;
 	position: relative;
 	transition: all 0.7s var(--transition);

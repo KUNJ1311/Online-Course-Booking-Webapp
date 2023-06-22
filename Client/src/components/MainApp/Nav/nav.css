@@ -9,7 +9,7 @@
 	box-shadow: 2px 3px 5px #000000ad;
 	top: 0;
 	z-index: 20;
-	font-family: var(--second-font);
+	font-family: var(--app-font);
 }
 
 .nav-container {
@@ -37,6 +37,7 @@
 	cursor: pointer;
 	text-decoration: none;
 	font-size: 2rem;
+	font-weight: 500;
 	flex-grow: 1;
 }
 
@@ -49,6 +50,7 @@
 
 .nav-links {
 	display: flex;
+	font-size: 1.1rem;
 	align-items: center;
 	justify-content: center;
 	color: #fff;
@@ -134,4 +136,13 @@
 .profile-ico {
 	display: flex;
 	margin: 0 !important;
+	border-radius: 50%;
+	border: 1px solid black;
+	overflow: hidden;
+}
+.profile-ico img {
+	transition: transform 0.3s ease-in-out;
+}
+.profile-ico img:hover {
+	transform: scale(1.2);
 }

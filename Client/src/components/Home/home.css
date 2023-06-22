@@ -1,7 +1,8 @@
 .home {
 	display: flex;
-	flex: 1 1 auto;
 	z-index: 1;
+	flex-direction: column;
+	overflow-x: hidden;
 }
 .aws-btn {
 	--slider-height-percentage: calc(100vh - 62px);

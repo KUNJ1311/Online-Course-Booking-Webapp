@@ -48,14 +48,12 @@ a {
 
 ::-webkit-scrollbar-track {
 	background-color: #b8bdc6;
-	border-radius: 5px;
 	border: 2px solid transparent;
 }
 
 ::-webkit-scrollbar-thumb {
 	background-color: #1f5156;
 	border: 2px solid transparent;
-	border-radius: 5px;
 }
 
 .scroller-d:hover::-webkit-scrollbar-thumb {

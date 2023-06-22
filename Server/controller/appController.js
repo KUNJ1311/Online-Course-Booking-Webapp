@@ -120,7 +120,7 @@ export async function regform(req, res) {
 	try {
 		const user = await DCUserModal.findOneAndUpdate(
 			{ email },
-			{ fullname, phone, college, address },
+			{ fullname, phone, college, address, formfill: true },
 			{ new: true } // To return the updated user document
 		);
 
@@ -143,8 +143,8 @@ export async function userdata(req, res) {
 		const id = decodedToken.userId;
 		const data = await DCUserModal.findOne({ _id: id });
 		//! remove password from user JSON
-		const { email, username } = Object.assign({}, data.toJSON());
-		return res.status(201).send({ email, username });
+		const { email, username, formfill } = Object.assign({}, data.toJSON());
+		return res.status(201).send({ email, username, formfill });
 	} catch (error) {
 		return res.status(500).send({ msg: "User not Found" });
 	}

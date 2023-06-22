@@ -36,7 +36,6 @@ const Form = ({ data, setFormSubmitted }) => {
 			if (fullname && address && college && phone && phone.length === 10) {
 				const { status } = await regform(email, fullname, phone, college, address);
 				if (status === 200) {
-					localStorage.setItem("form", true);
 					toast.info("Congratulations! Your information updated successfully.");
 					setFormSubmitted(true);
 				} else {

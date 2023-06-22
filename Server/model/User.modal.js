@@ -32,6 +32,10 @@ export const UserSchema = new mongoose.Schema({
 		type: String,
 		default: "",
 	},
+	formfill: {
+		type: Boolean,
+		default: false,
+	},
 });
 
 export default mongoose.model.DCUsers || mongoose.model("DCUser", UserSchema);

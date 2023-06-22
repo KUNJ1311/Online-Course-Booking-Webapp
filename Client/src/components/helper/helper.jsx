@@ -69,6 +69,7 @@ export const regform = async (email, fullname, phone, college, address) => {
 				phone,
 				college,
 				address,
+				formfill: true,
 			},
 			{
 				headers: {

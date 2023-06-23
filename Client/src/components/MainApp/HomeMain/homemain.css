@@ -13,6 +13,7 @@
 	--second2-font: "Caveat", cursive;
 }
 .portfolio {
+	user-select: none;
 	font-family: var(--app-font);
 	color: white;
 	background-image: var(--third-gradient);
@@ -50,7 +51,8 @@
 .section_title {
 	font-size: var(--h1-font-size);
 	font-family: var(--second2-font);
-	margin: 18px 0 24px;
+	margin: 0px 0 24px;
+	padding-top: 18px;
 }
 
 .section_subtitle {

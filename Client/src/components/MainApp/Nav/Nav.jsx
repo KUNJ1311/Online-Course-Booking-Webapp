@@ -1,31 +1,41 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { Link, animateScroll as scroll } from "react-scroll";
 import "./nav.css";
 import userContext from "../../context/userContext";
 import ProfileModal from "../ProfileModal";
 import avatar from "../../Login/avatar.svg";
-const Nav = () => {
+const Nav = ({ data, setFormSubmitted }) => {
 	const context = useContext(userContext);
 	const { handleClick, handleCloseModal, showModal, modal } = context;
 	useEffect(() => {
 		modal();
 	}, [modal, showModal]);
 	const [click, setClick] = useState(false);
-	const location = useLocation();
 	const [active, setActive] = useState(0);
 
 	useEffect(() => {
-		const { pathname } = location;
-		if (pathname === "/mainapp") {
-			setActive(1);
-		} else if (pathname === "/about") {
-			setActive(2);
-		} else if (pathname === "/profile") {
-			setActive(4);
-		} else if (pathname === "/contact") {
-			setActive(3);
-		}
-	}, [location]);
+		const handleScroll = () => {
+			const scrollPosition = window.scrollY;
+			const windowHeight = window.innerHeight;
+			const aboutSection = document.getElementById("about");
+			const aboutSectionOffset = aboutSection.offsetTop;
+			const aboutSectionHeight = aboutSection.offsetHeight;
+
+			if (scrollPosition === 0) {
+				setActive(1);
+			} else if (scrollPosition + windowHeight >= aboutSectionOffset + aboutSectionHeight) {
+				setActive(2);
+			} else {
+				setActive(1);
+			}
+		};
+
+		window.addEventListener("scroll", handleScroll);
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
 
 	const handleClickNav = () => setClick(!click);
 	const Close = () => setClick(false);
@@ -35,31 +45,42 @@ const Nav = () => {
 			<div className={click ? "main-container" : ""} onClick={Close} />
 			<nav className="navbar" onClick={(e) => e.stopPropagation()}>
 				<div className="nav-container">
-					<Link to="/mainapp" className="nav-logo">
+					<Link
+						to=""
+						onClick={() => {
+							scroll.scrollToTop();
+						}}
+						smooth={true}
+						duration={500}
+						className="nav-logo"
+					>
 						DC4 IT SOLUTIONS
 					</Link>
 					<ul className={click ? "nav-menu active" : "nav-menu"}>
 						<li className={active === 1 ? "nav-item-active nav-item" : "nav-item"}>
-							<Link to="/mainapp" className="nav-links">
+							<Link
+								to=""
+								onClick={() => {
+									scroll.scrollToTop();
+								}}
+								smooth={true}
+								duration={500}
+								className="nav-links"
+							>
 								Home
 							</Link>
 						</li>
 						<li className={active === 2 ? "nav-item-active nav-item" : "nav-item"}>
-							<Link to="/about" className="nav-links">
-								About
-							</Link>
-						</li>
-						<li className={active === 3 ? "nav-item-active nav-item" : "nav-item"}>
-							<Link to="/contact" className="nav-links">
-								Contact Us
+							<Link to="about" smooth={true} duration={500} className="nav-links">
+								About Us
 							</Link>
 						</li>
 						<li className={"p-ico"} onClick={handleClick}>
-							<Link className="nav-links">
+							<div className="nav-links">
 								<div className="social-container profile-ico">
 									<img src={avatar} alt="" width="55px" height="55px" />
 								</div>
-							</Link>
+							</div>
 						</li>
 					</ul>
 					<div className="nav-icon" onClick={handleClickNav}>
@@ -120,7 +141,7 @@ const Nav = () => {
 					</div>
 				</div>
 			</nav>
-			{showModal && <ProfileModal onClose={handleCloseModal} />}
+			{showModal && <ProfileModal onClose={handleCloseModal} data={data} setFormSubmitted={setFormSubmitted} />}
 		</>
 	);
 };

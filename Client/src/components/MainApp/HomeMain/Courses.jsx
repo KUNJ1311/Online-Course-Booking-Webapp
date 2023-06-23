@@ -18,15 +18,17 @@ const Portfolio = () => {
 		setMenuItems(newProjectItems);
 	};
 	return (
-		<section className="portfolio section2" id="work">
-			<h2 className="section_title text-cs">Courses</h2>
-			<List list={navList} filterItems={filterItems} />
-			<div className="portfolio_container container2 grid">
-				<AnimatePresence initial={false}>
-					<Items projectItems={projectItems} />
-				</AnimatePresence>
-			</div>
-		</section>
+		<>
+			<section className="portfolio section2 ">
+				<h2 className="section_title text-cs">Courses</h2>
+				<List list={navList} filterItems={filterItems} />
+				<div className="portfolio_container container2 grid">
+					<AnimatePresence initial={false}>
+						<Items projectItems={projectItems} />
+					</AnimatePresence>
+				</div>
+			</section>
+		</>
 	);
 };
 

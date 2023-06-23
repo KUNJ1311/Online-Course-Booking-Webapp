@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Form from "../Login/Form";
 import { userData } from "../helper/helper";
 import Nav from "./Nav/Nav";
 import HomeMain from "./HomeMain/HomeMain";
 import Footer from "../Footer/Footer";
+import RegisterForm from "../Login/RegisterForm";
 
 const MainApp = () => {
 	const [adduserData, setAddUserData] = useState(null);
@@ -30,10 +30,12 @@ const MainApp = () => {
 	}, []);
 	return (
 		<>
-			<Nav />
+			<Nav data={adduserData} setFormSubmitted={setFormSubmitted} />
 			<HomeMain />
-			<Footer />
-			{!formSubmitted && <Form data={adduserData} setFormSubmitted={setFormSubmitted} />}
+			<div id="about">
+				<Footer />
+			</div>
+			{!formSubmitted && <RegisterForm data={adduserData} setFormSubmitted={setFormSubmitted} />}
 		</>
 	);
 };

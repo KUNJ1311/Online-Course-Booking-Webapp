@@ -143,8 +143,8 @@ export async function userdata(req, res) {
 		const id = decodedToken.userId;
 		const data = await DCUserModal.findOne({ _id: id });
 		//! remove password from user JSON
-		const { email, username, formfill } = Object.assign({}, data.toJSON());
-		return res.status(201).send({ email, username, formfill });
+		const { email, username, formfill, fullname, phone, college, address } = Object.assign({}, data.toJSON());
+		return res.status(201).send({ email, username, fullname, formfill, phone, college, address });
 	} catch (error) {
 		return res.status(500).send({ msg: "User not Found" });
 	}

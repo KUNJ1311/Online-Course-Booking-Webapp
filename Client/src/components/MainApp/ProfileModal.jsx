@@ -6,7 +6,7 @@ const ProfileModal = ({ onClose, data, setFormSubmitted }) => {
 		<section className="sec" onClick={onClose}>
 			<div className="scroll-container">
 				<div className={`reg-container fade-in`} id="container" onClick={(e) => e.stopPropagation()}>
-					<Form data={data} setFormSubmitted={setFormSubmitted} name={"Profile"} />
+					<Form data={data} setFormSubmitted={setFormSubmitted} name={"Profile"} update={"Update"} />
 				</div>
 			</div>
 		</section>

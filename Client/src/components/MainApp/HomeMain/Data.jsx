@@ -8,7 +8,6 @@ export const projects = [
 		category: "Cyber Security",
 		title: "1 Month Course",
 		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
-		link: `https://coderspoint.in`,
 	},
 	{
 		id: 2,
@@ -16,7 +15,6 @@ export const projects = [
 		category: "Cyber Security",
 		title: "3 Month Course",
 		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
-		link: ``,
 	},
 	{
 		id: 3,
@@ -24,7 +22,6 @@ export const projects = [
 		category: "Cyber Security",
 		title: "6 Month Course",
 		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
-		link: `https://github.com/KUNJ1311/Library_M_S`,
 	},
 	{
 		id: 4,
@@ -32,7 +29,6 @@ export const projects = [
 		category: "Web Technology",
 		title: "1 Month Course",
 		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
-		link: `https://github.com/KUNJ1311/iNotebook`,
 	},
 	{
 		id: 5,
@@ -40,7 +36,6 @@ export const projects = [
 		category: "Web Technology",
 		title: "3 Month Course",
 		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
-		link: `https://github.com/KUNJ1311/News-Website`,
 	},
 	{
 		id: 6,
@@ -48,7 +43,6 @@ export const projects = [
 		category: "Web Technology",
 		title: "6 Month Course",
 		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
-		link: `https://github.com/KUNJ1311/News-Website`,
 	},
 	{
 		id: 7,
@@ -56,7 +50,6 @@ export const projects = [
 		category: "WordPress",
 		title: "1 Month Course",
 		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
-		link: `https://github.com/KUNJ1311/News-Website`,
 	},
 	{
 		id: 8,
@@ -64,7 +57,6 @@ export const projects = [
 		category: "WordPress",
 		title: "3 Month Course",
 		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
-		link: `https://github.com/KUNJ1311/News-Website`,
 	},
 	{
 		id: 9,
@@ -72,6 +64,5 @@ export const projects = [
 		category: "WordPress",
 		title: "6 Month Course",
 		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
-		link: `https://github.com/KUNJ1311/News-Website`,
 	},
 ];

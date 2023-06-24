@@ -20,7 +20,6 @@ const Portfolio = () => {
 	return (
 		<>
 			<section className="portfolio section2">
-				<h2 className="section_title text-cs p-clr">Courses</h2>
 				<List list={navList} filterItems={filterItems} />
 				<div className="portfolio_container container2 grid">
 					<AnimatePresence initial={false}>

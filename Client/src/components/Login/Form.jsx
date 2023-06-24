@@ -7,7 +7,7 @@ import avatar from "./avatar.svg";
 import { regform } from "../helper/helper";
 import { toast } from "react-toastify";
 
-const Form = ({ data, setFormSubmitted, name }) => {
+const Form = ({ data, setFormSubmitted, name, update }) => {
 	const [credentials, setCredentials] = useState({
 		email: "",
 		username: "",
@@ -63,35 +63,35 @@ const Form = ({ data, setFormSubmitted, name }) => {
 				<div className="infield">
 					<RiUser3Fill className="icon-login" />
 					<input type="text" readOnly value={credentials.username} name="username" placeholder="Username" />
-					<label></label>
+					<span></span>
 				</div>
 				<div className="infield">
 					<MdMail className="icon-login" />
 					<input type="email" readOnly value={credentials.email} placeholder="Email" name="email" />
-					<label></label>
+					<span></span>
 				</div>
 				<div className="infield">
 					<FaUserCircle className="icon-login" />
 					<input type="text" onChange={onChange} value={credentials.fullname} name="fullname" placeholder="Full Name" />
-					<label></label>
+					<span></span>
 				</div>
 				<div className="infield">
 					<RiPhoneFill className="icon-login" />
 					<input type="number" onChange={onChange} value={credentials.phone} name="phone" placeholder="Phone No." />
-					<label></label>
+					<span></span>
 				</div>
 				<div className="infield">
 					<FaUniversity className="icon-login" />
 					<input type="text" onChange={onChange} value={credentials.college} name="college" placeholder="College" />
-					<label></label>
+					<span></span>
 				</div>
 				<div className="infield">
 					<IoLocationSharp className="icon-login" />
 					<textarea rows={3} type="text" onChange={onChange} value={credentials.address} name="address" placeholder="Address" />
-					<label></label>
+					<span></span>
 				</div>
 				<button className="robtn mt-2" type="submit">
-					Submit
+					{update}
 				</button>
 			</form>
 		</div>

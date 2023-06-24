@@ -6,7 +6,7 @@ const RegisterForm = ({ data, setFormSubmitted }) => {
 		<section className="sec">
 			<div className="scroll-container">
 				<div className={`reg-container fade-in`} id="container">
-					<Form data={data} setFormSubmitted={setFormSubmitted} name={"Registration Form"} />
+					<Form data={data} setFormSubmitted={setFormSubmitted} name={"Registration Form"} update={"Submit"} />
 				</div>
 			</div>
 		</section>

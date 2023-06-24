@@ -13,7 +13,7 @@ const Footer = () => {
 			<div className="footer-left">
 				<h3>DC4 IT SOLUTIONS</h3>
 				<p className="footer-company-name">
-					Developed by <a href="https://github.com/KUNJ1311">Kunj Faladu</a> &copy; 2023
+					Developed &amp; Designed by <a href="https://github.com/KUNJ1311">Kunj Faladu</a> &copy; 2023
 				</p>
 			</div>
 

@@ -9,25 +9,25 @@ const MainApp = () => {
 	const [adduserData, setAddUserData] = useState(null);
 	const [formSubmitted, setFormSubmitted] = useState(true);
 	//* Getting user data
-	useEffect(() => {
-		const GetData = async () => {
-			try {
-				const { data, status } = await userData();
-				if (status === 201) {
-					setAddUserData(data);
-				}
-				if (data?.formfill === false) {
-					setFormSubmitted(false);
-				}
-				if (data?.formfill === true) {
-					setFormSubmitted(true);
-				}
-			} catch (error) {
-				console.log(error);
+	const GetData = async () => {
+		try {
+			const { data, status } = await userData();
+			if (status === 201) {
+				setAddUserData(data);
 			}
-		};
+			if (data?.formfill === false) {
+				setFormSubmitted(false);
+			}
+			if (data?.formfill === true) {
+				setFormSubmitted(true);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+	useEffect(() => {
 		GetData();
-	}, []);
+	}, [formSubmitted]);
 	return (
 		<>
 			<Nav data={adduserData} setFormSubmitted={setFormSubmitted} />

@@ -4,6 +4,9 @@ import "./nav.css";
 import userContext from "../../context/userContext";
 import ProfileModal from "../ProfileModal";
 import avatar from "../../Login/avatar.svg";
+import { RiLogoutCircleLine } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 const Nav = ({ data, setFormSubmitted }) => {
 	const context = useContext(userContext);
 	const { handleClick, handleCloseModal, showModal, modal } = context;
@@ -39,6 +42,12 @@ const Nav = ({ data, setFormSubmitted }) => {
 	const handleClickNav = () => setClick(!click);
 	const Close = () => setClick(false);
 
+	const Navigate = useNavigate();
+	const handleLogout = () => {
+		localStorage.removeItem("coderToken");
+		Navigate("/");
+		toast.success("You have successfully logged out.");
+	};
 	return (
 		<>
 			<div className={click ? "main-container" : ""} onClick={Close} />
@@ -66,7 +75,7 @@ const Nav = ({ data, setFormSubmitted }) => {
 								duration={500}
 								className="nav-links"
 							>
-								Home
+								Courses
 							</Link>
 						</li>
 						<li className={active === 2 ? "nav-item-active nav-item" : "nav-item"}>
@@ -74,12 +83,15 @@ const Nav = ({ data, setFormSubmitted }) => {
 								About Us
 							</Link>
 						</li>
-						<li className={"p-ico"} onClick={handleClick}>
+						<li onClick={handleClick}>
 							<div className="nav-links">
 								<div className="social-container profile-ico">
 									<img src={avatar} alt="" width="55px" height="55px" />
 								</div>
 							</div>
+						</li>
+						<li className="p-ico">
+							<RiLogoutCircleLine className="logout" onClick={handleLogout} />
 						</li>
 					</ul>
 					<div className="nav-icon" onClick={handleClickNav}>

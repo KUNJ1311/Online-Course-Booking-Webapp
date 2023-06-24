@@ -137,7 +137,7 @@ h1.h {
 	display: flex;
 }
 
-.form-login label {
+.form-login span {
 	position: absolute;
 	left: 50%;
 	top: 100%;
@@ -148,10 +148,10 @@ h1.h {
 	transition: 0.3s ease-in-out;
 }
 
-.form-login input:focus ~ label {
+.form-login input:focus ~ span {
 	width: 100%;
 }
-.form-login textarea:focus ~ label {
+.form-login textarea:focus ~ span {
 	width: 100%;
 }
 .forgot {

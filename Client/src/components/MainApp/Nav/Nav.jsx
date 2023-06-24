@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import { Link, animateScroll as scroll } from "react-scroll";
 import "./nav.css";
 import userContext from "../../context/userContext";
@@ -12,7 +11,7 @@ const Nav = ({ data, setFormSubmitted }) => {
 		modal();
 	}, [modal, showModal]);
 	const [click, setClick] = useState(false);
-	const [active, setActive] = useState(0);
+	const [active, setActive] = useState(1);
 
 	useEffect(() => {
 		const handleScroll = () => {

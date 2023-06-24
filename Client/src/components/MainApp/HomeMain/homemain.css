@@ -12,6 +12,9 @@
 	--smaller-font-size: 14px;
 	--second2-font: "Caveat", cursive;
 }
+.p-clr {
+	color: var(--primary-color);
+}
 .portfolio {
 	user-select: none;
 	font-family: var(--app-font);

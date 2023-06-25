@@ -3,6 +3,9 @@ import cors from "cors";
 import morgan from "morgan";
 import connect from "./database/conn.js";
 import router from "./routes/route.js";
+import paymentrouter from "./routes/payment.js";
+import Razorpay from "razorpay";
+import ENV from "./config.js";
 
 const app = express();
 
@@ -13,6 +16,10 @@ app.disable("x-powered-by"); //? less hackers know about our stack
 
 const port = 8080;
 
+export const instance = new Razorpay({
+	key_id: ENV.RAZORPAY_API_KEY,
+	key_secret: ENV.RAZORPAY_API_SECRET,
+});
 //* HTTP GET Request
 app.get("/", (req, res) => {
 	res.status(201).json("Hello Backend!");
@@ -20,7 +27,7 @@ app.get("/", (req, res) => {
 
 //* api routes
 app.use("/api", router);
-
+app.use("/payment", paymentrouter);
 //* Start Server only when valid connection
 connect()
 	.then(() => {

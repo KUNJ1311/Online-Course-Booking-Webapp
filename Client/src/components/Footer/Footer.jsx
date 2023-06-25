@@ -26,12 +26,14 @@ const Footer = () => {
 				</div>
 				<div>
 					<RiPhoneFill className="icon-i" />
-					<p>+1.555.555.5555</p>
+					<p>+91 8141583011</p>
 				</div>
 				<div>
 					<MdMail className="icon-i" />
 					<p>
-						<a href="mailto:support@company.com">support@company.com</a>
+						<a href="mailto:kunjfaladu1311@gmail.com" style={{ color: "white" }}>
+							kunjfaladu1311@gmail.com
+						</a>
 					</p>
 				</div>
 			</div>

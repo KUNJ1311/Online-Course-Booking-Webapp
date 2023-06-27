@@ -8,6 +8,7 @@ export const projects = [
 		category: "Cyber Security",
 		title: "1 Month Course",
 		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+		price: 1500,
 	},
 	{
 		id: 2,
@@ -15,6 +16,8 @@ export const projects = [
 		category: "Cyber Security",
 		title: "3 Month Course",
 		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+		price: 3000,
+		newprice: 2799,
 	},
 	{
 		id: 3,
@@ -22,6 +25,8 @@ export const projects = [
 		category: "Cyber Security",
 		title: "6 Month Course",
 		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+		price: 6000,
+		newprice: 4299,
 	},
 	{
 		id: 4,
@@ -29,6 +34,7 @@ export const projects = [
 		category: "Web Technology",
 		title: "1 Month Course",
 		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+		price: 1000,
 	},
 	{
 		id: 5,
@@ -36,6 +42,8 @@ export const projects = [
 		category: "Web Technology",
 		title: "3 Month Course",
 		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+		price: 3000,
+		newprice: 2499,
 	},
 	{
 		id: 6,
@@ -43,6 +51,8 @@ export const projects = [
 		category: "Web Technology",
 		title: "6 Month Course",
 		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+		price: 6000,
+		newprice: 3999,
 	},
 	{
 		id: 7,
@@ -50,6 +60,7 @@ export const projects = [
 		category: "WordPress",
 		title: "1 Month Course",
 		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+		price: 1000,
 	},
 	{
 		id: 8,
@@ -57,6 +68,8 @@ export const projects = [
 		category: "WordPress",
 		title: "3 Month Course",
 		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+		price: 3000,
+		newprice: 2499,
 	},
 	{
 		id: 9,
@@ -64,5 +77,7 @@ export const projects = [
 		category: "WordPress",
 		title: "6 Month Course",
 		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+		price: 6000,
+		newprice: 3999,
 	},
 ];

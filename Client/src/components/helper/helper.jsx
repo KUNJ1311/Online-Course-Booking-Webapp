@@ -156,12 +156,47 @@ export const resetPassword = async ({ email, password }) => {
 export const userData = async () => {
 	try {
 		const token = localStorage.getItem("coderToken");
-		const { data, msg, status } = await axios.get("http://localhost:8080/api/userdata", {
+		const { data, msg, status } = await axios.get(`${host}/api/userdata`, {
 			headers: {
 				Authorization: `Bearer ${token}`,
 			},
 		});
 		return Promise.resolve({ data, msg, status });
+	} catch (error) {
+		return Promise.reject({ error });
+	}
+};
+//! Auth user
+export const Auth = async () => {
+	try {
+		const token = localStorage.getItem("coderToken");
+		const { msg, status } = await axios.post(`${host}/api/auth`, {
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+		});
+		return Promise.resolve({ msg, status });
+	} catch (error) {
+		return Promise.reject({ error });
+	}
+};
+//! Payment
+export const checkoutHandler = async (amount) => {
+	try {
+		const token = localStorage.getItem("coderToken");
+		const { data, status } = await axios.post(
+			`${host}/payment/checkout`,
+			{
+				amount,
+			},
+			{
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${token}`,
+				},
+			}
+		);
+		return Promise.resolve({ data, status });
 	} catch (error) {
 		return Promise.reject({ error });
 	}

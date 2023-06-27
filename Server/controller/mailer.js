@@ -17,7 +17,7 @@ export const registerMail = async (req, res) => {
 	let message = {
 		from: ENV.EMAIL,
 		to: userEmail,
-		subject: subject || "OTP By Coders Point",
+		subject: subject || "OTP By DC4 IT SOLUTIONS",
 		html: `
 			<!DOCTYPE html>
 			<html lang="en">
@@ -25,7 +25,7 @@ export const registerMail = async (req, res) => {
 				<meta charset="UTF-8">
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
 				<style>
-					/* Global styles */
+					/* Global styles*/
 					body {
 						font-family: Arial, sans-serif;
 						background-color: #f1f1f1;
@@ -77,7 +77,7 @@ export const registerMail = async (req, res) => {
 						color: #ffffff;
 						font-size: 36px !important;
 				}
-					/* Footer styles */
+					/* Footer styles All Coding by Kunj Faladu :) shhhh..!*/
 					.footer {
 						background-color: #f8f8f8;
 						border-radius: 0 0 10px 10px;
@@ -105,7 +105,6 @@ export const registerMail = async (req, res) => {
 								<p>Your One-Time Password (OTP) is:</p>
 								<p class="otp-code" style="letter-spacing: 10px;">${text}</p>
 								<p>Please use this OTP to complete your verification process.</p>
-								
 							</td>
 						</tr>
 						<tr>

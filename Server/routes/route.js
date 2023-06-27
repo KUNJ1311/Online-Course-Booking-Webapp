@@ -16,6 +16,9 @@ router.route("/authenticate").post(controller.verifyUser, (req, res) => {
 router.route("/login").post(controller.verifyUser, controller.login);
 router.route("/checkuser").post(controller.checkUser);
 router.route("/registerform").post(Auth, controller.regform);
+router.route("/auth").post(Auth, (req, res) => {
+	res.status(200).send({ msg: "Verified" });
+});
 //? GET
 router.route("/user/:email").get(controller.getUser);
 router.route("/generateOTP").get(controller.generateOTP);

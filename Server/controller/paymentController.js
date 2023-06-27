@@ -1,5 +1,8 @@
 import { instance } from "../index.js";
 import ENV from "../config.js";
+import { instance } from "../index.js";
+import { validatePaymentVerification, validateWebhookSignature } from "razorpay/dist/utils/razorpay-utils.js";
+
 //? Taking Order Checkout
 export const checkout = async (req, res) => {
 	try {
@@ -17,7 +20,7 @@ export const checkout = async (req, res) => {
 //? Payment Verification
 export const paymentVerification = async (req, res) => {
 	try {
-		console.log(req.body);
+		validatePaymentVerification({ order_id: razorpayOrderId, payment_id: razorpayPaymentId }, signature, secret);
 		res.status(200).json({ success: true });
 	} catch (error) {
 		res.status(500).send({ msg: error });

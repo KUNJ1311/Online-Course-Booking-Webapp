@@ -6,6 +6,7 @@ import router from "./routes/route.js";
 import paymentrouter from "./routes/payment.js";
 import Razorpay from "razorpay";
 import ENV from "./config.js";
+import bodyParser from "body-parser";
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan("tiny"));
 app.disable("x-powered-by"); //? less hackers know about our stack
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const port = 8080;
 
@@ -20,6 +22,7 @@ export const instance = new Razorpay({
 	key_id: ENV.RAZORPAY_API_KEY,
 	key_secret: ENV.RAZORPAY_API_SECRET,
 });
+
 //* HTTP GET Request
 app.get("/", (req, res) => {
 	res.status(201).json("Hello Backend!");

@@ -42,6 +42,7 @@ const Items = ({ projectItems }) => {
 					};
 					const razor = new window.Razorpay(options);
 					razor.open();
+					//37:40 time stamp :)
 				}
 			}
 		} catch (error) {

@@ -6,7 +6,6 @@ import UserState from "./components/context/UserState";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthorizeUser } from "./components/middleware/auth";
-
 function App() {
 	return (
 		<>

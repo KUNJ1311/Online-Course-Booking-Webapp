@@ -19,6 +19,7 @@ router.route("/registerform").post(Auth, controller.regform);
 router.route("/auth").post(Auth, (req, res) => {
 	res.status(200).send({ msg: "Verified" });
 });
+
 //? GET
 router.route("/user/:email").get(controller.getUser);
 router.route("/generateOTP").get(controller.generateOTP);

@@ -2,16 +2,47 @@ import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 import shapeTwo from "./assets/shape-2.png";
 import { motion } from "framer-motion";
-import { checkoutHandler } from "../../helper/helper";
+import { checkoutHandler, userData } from "../../helper/helper";
+import axios from "axios";
 
 const Items = ({ projectItems }) => {
+	const host = process.env.REACT_APP_HOST;
 	const handleBuy = async (amount) => {
 		try {
-			const { data, status } = await checkoutHandler(amount);
+			const {
+				data: { key },
+			} = await axios.get(`${host}/payment/getkey`);
+			const {
+				data: { order },
+				status,
+			} = await checkoutHandler(amount);
 			if (status === 200) {
-				console.log(data, status);
-			} else {
-				console.log(data, status);
+				const { data, status } = await userData();
+				if (status === 201) {
+					const options = {
+						key,
+						amount: order.amount,
+						currency: "INR",
+						name: "DC4 IT SOLUTIONS",
+						description: "Transaction",
+						image: "https://avatars.githubusercontent.com/u/74526794?v=4",
+						order_id: order.id,
+						callback_url: `${host}/payment/paymentverification`,
+						prefill: {
+							name: data.fullname,
+							email: data.email,
+							contact: data.phone,
+						},
+						notes: {
+							address: "Razorpay Corporate Office",
+						},
+						theme: {
+							color: "#29a385",
+						},
+					};
+					const razor = new window.Razorpay(options);
+					razor.open();
+				}
 			}
 		} catch (error) {
 			console.log(error);

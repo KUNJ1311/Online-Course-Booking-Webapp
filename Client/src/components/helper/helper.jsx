@@ -1,6 +1,5 @@
 import axios from "axios";
-
-const host = "http://localhost:8080";
+const host = process.env.REACT_APP_HOST;
 //* Make Api Requests
 
 //? authenticate function
@@ -166,6 +165,7 @@ export const userData = async () => {
 		return Promise.reject({ error });
 	}
 };
+
 //! Auth user
 export const Auth = async () => {
 	try {
@@ -180,6 +180,7 @@ export const Auth = async () => {
 		return Promise.reject({ error });
 	}
 };
+
 //! Payment
 export const checkoutHandler = async (amount) => {
 	try {

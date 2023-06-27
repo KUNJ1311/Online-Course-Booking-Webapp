@@ -18,6 +18,7 @@ const Form = ({ data, setFormSubmitted, name, update, onCancle }) => {
 	});
 
 	useEffect(() => {
+		console.log(data);
 		if (data) {
 			setCredentials({
 				email: data.email || "",

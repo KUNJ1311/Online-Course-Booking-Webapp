@@ -7,7 +7,7 @@ import avatar from "../../Login/avatar.svg";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-const Nav = ({ data, setFormSubmitted, handleFormSubmit }) => {
+const Nav = ({ data, setFormSubmitted }) => {
 	const context = useContext(userContext);
 	const { handleClick, handleCloseModal, showModal, modal } = context;
 	useEffect(() => {
@@ -152,7 +152,7 @@ const Nav = ({ data, setFormSubmitted, handleFormSubmit }) => {
 					</div>
 				</div>
 			</nav>
-			{showModal && <ProfileModal onClose={handleCloseModal} data={data} setFormSubmitted={setFormSubmitted} handleFormSubmit={handleFormSubmit} />}
+			{showModal && <ProfileModal onClose={handleCloseModal} data={data} setFormSubmitted={setFormSubmitted} />}
 		</>
 	);
 };

@@ -7,7 +7,7 @@ import avatar from "./avatar.svg";
 import { regform } from "../helper/helper";
 import { toast } from "react-toastify";
 
-const Form = ({ data, setFormSubmitted, name, update, onCancle, handleFormSubmit }) => {
+const Form = ({ data, setFormSubmitted, name, update, onCancle }) => {
 	const [credentials, setCredentials] = useState({
 		email: "",
 		username: "",
@@ -34,10 +34,11 @@ const Form = ({ data, setFormSubmitted, name, update, onCancle, handleFormSubmit
 		try {
 			e.preventDefault();
 			if (fullname && address && college && phone && phone.toString().length === 10) {
+				setFormSubmitted(true);
 				const { status } = await regform(email, fullname, phone, college, address);
 				if (status === 200) {
 					toast.info("Congratulations! Your information updated successfully.");
-					setFormSubmitted(true);
+					onCancle();
 				} else {
 					toast.error("Try Again..");
 				}
@@ -91,7 +92,7 @@ const Form = ({ data, setFormSubmitted, name, update, onCancle, handleFormSubmit
 					<span></span>
 				</div>
 				<div className="btn2">
-					<button className="robtn mt-2 mr-4 btnn" type="submit" onClick={handleFormSubmit}>
+					<button className="robtn mt-2 mr-4 btnn" type="submit">
 						{update}
 					</button>
 					{onCancle && (

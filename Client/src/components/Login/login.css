@@ -169,17 +169,6 @@ h1.h {
 	display: flex;
 }
 
-.form-login span {
-	position: absolute;
-	left: 50%;
-	top: 100%;
-	transform: translateX(-50%);
-	width: 0%;
-	height: 2px;
-	background: var(--linear-grad);
-	transition: 0.3s ease-in-out;
-}
-
 .form-login input:focus ~ span {
 	width: 100%;
 }

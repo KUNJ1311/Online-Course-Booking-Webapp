@@ -21,10 +21,10 @@ const MainApp = () => {
 			if (status === 201) {
 				setAddUserData(data);
 			}
-			if (data?.formfill === false) {
+			if (data && data.formfill === false) {
 				setFormSubmitted(false);
 			}
-			if (data?.formfill === true) {
+			if (data && data.formfill === true) {
 				setFormSubmitted(true);
 			}
 		} catch (error) {
@@ -34,10 +34,6 @@ const MainApp = () => {
 	useEffect(() => {
 		GetData();
 	}, [formSubmitted]);
-
-	const handleFormSubmit = () => {
-		setFormSubmitted(false);
-	};
 
 	useEffect(() => {
 		const queryParams = new URLSearchParams(location.search);
@@ -55,12 +51,12 @@ const MainApp = () => {
 
 	return (
 		<>
-			<Nav data={adduserData} setFormSubmitted={setFormSubmitted} handleFormSubmit={handleFormSubmit} />
+			<Nav data={adduserData} setFormSubmitted={setFormSubmitted} />
 			<HomeMain />
 			<div id="about">
 				<Footer />
 			</div>
-			{!formSubmitted && <RegisterForm data={adduserData} setFormSubmitted={setFormSubmitted} handleFormSubmit={handleFormSubmit} />}
+			{!formSubmitted && <RegisterForm data={adduserData} setFormSubmitted={setFormSubmitted} />}
 			{showPaymentSuccessModal && <PaymentSuccess onClose={closeModal} />}
 		</>
 	);

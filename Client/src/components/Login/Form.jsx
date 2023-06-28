@@ -7,7 +7,7 @@ import avatar from "./avatar.svg";
 import { regform } from "../helper/helper";
 import { toast } from "react-toastify";
 
-const Form = ({ data, setFormSubmitted, name, update, onCancle }) => {
+const Form = ({ data, setFormSubmitted, name, update, onCancle, handleFormSubmit }) => {
 	const [credentials, setCredentials] = useState({
 		email: "",
 		username: "",
@@ -18,7 +18,6 @@ const Form = ({ data, setFormSubmitted, name, update, onCancle }) => {
 	});
 
 	useEffect(() => {
-		console.log(data);
 		if (data) {
 			setCredentials({
 				email: data.email || "",
@@ -92,7 +91,7 @@ const Form = ({ data, setFormSubmitted, name, update, onCancle }) => {
 					<span></span>
 				</div>
 				<div className="btn2">
-					<button className="robtn mt-2 mr-4 btnn" type="submit">
+					<button className="robtn mt-2 mr-4 btnn" type="submit" onClick={handleFormSubmit}>
 						{update}
 					</button>
 					{onCancle && (

@@ -3,15 +3,16 @@ import web from "./assets/web.png";
 import wordpress from "./assets/wordpress.jpeg";
 export const projects = [
 	{
-		id: 1,
+		id: 1001,
 		img: cyber,
 		category: "Cyber Security",
 		title: "1 Month Course",
 		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
 		price: 1500,
+		newprice: 1299,
 	},
 	{
-		id: 2,
+		id: 1002,
 		img: cyber,
 		category: "Cyber Security",
 		title: "3 Month Course",
@@ -20,7 +21,7 @@ export const projects = [
 		newprice: 2799,
 	},
 	{
-		id: 3,
+		id: 1003,
 		img: cyber,
 		category: "Cyber Security",
 		title: "6 Month Course",
@@ -29,7 +30,7 @@ export const projects = [
 		newprice: 4299,
 	},
 	{
-		id: 4,
+		id: 1004,
 		img: web,
 		category: "Web Technology",
 		title: "1 Month Course",
@@ -37,7 +38,7 @@ export const projects = [
 		price: 1000,
 	},
 	{
-		id: 5,
+		id: 1005,
 		img: web,
 		category: "Web Technology",
 		title: "3 Month Course",
@@ -46,7 +47,7 @@ export const projects = [
 		newprice: 2499,
 	},
 	{
-		id: 6,
+		id: 1006,
 		img: web,
 		category: "Web Technology",
 		title: "6 Month Course",
@@ -55,7 +56,7 @@ export const projects = [
 		newprice: 3999,
 	},
 	{
-		id: 7,
+		id: 1007,
 		img: wordpress,
 		category: "WordPress",
 		title: "1 Month Course",
@@ -63,7 +64,7 @@ export const projects = [
 		price: 1000,
 	},
 	{
-		id: 8,
+		id: 1008,
 		img: wordpress,
 		category: "WordPress",
 		title: "3 Month Course",
@@ -72,7 +73,7 @@ export const projects = [
 		newprice: 2499,
 	},
 	{
-		id: 9,
+		id: 1009,
 		img: wordpress,
 		category: "WordPress",
 		title: "6 Month Course",

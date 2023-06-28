@@ -4,10 +4,11 @@ import shapeTwo from "./assets/shape-2.png";
 import { motion } from "framer-motion";
 import { checkoutHandler, userData } from "../../helper/helper";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Items = ({ projectItems }) => {
 	const host = process.env.REACT_APP_HOST;
-	const handleBuy = async (amount) => {
+	const handleBuy = async (amount, id, title, category) => {
 		try {
 			const {
 				data: { key },
@@ -19,6 +20,13 @@ const Items = ({ projectItems }) => {
 			if (status === 200) {
 				const { data, status } = await userData();
 				if (status === 201) {
+					const callbackParams = new URLSearchParams({
+						course: category + " - " + title,
+						amount: order.amount,
+						product_id: id,
+						fullname: data.fullname,
+						email: data.email,
+					});
 					const options = {
 						key,
 						amount: order.amount,
@@ -27,22 +35,24 @@ const Items = ({ projectItems }) => {
 						description: "Transaction",
 						image: "https://avatars.githubusercontent.com/u/74526794?v=4",
 						order_id: order.id,
-						callback_url: `${host}/payment/paymentverification`,
+						callback_url: `${host}/payment/paymentverification?${callbackParams.toString()}`,
 						prefill: {
 							name: data.fullname,
 							email: data.email,
 							contact: data.phone,
 						},
 						notes: {
-							address: "Razorpay Corporate Office",
+							address: data.address,
 						},
 						theme: {
 							color: "#29a385",
 						},
 					};
 					const razor = new window.Razorpay(options);
+					razor.on("payment.failed", function (response) {
+						response && toast.error("Something went wrong! Please try again.");
+					});
 					razor.open();
-					//37:40 time stamp :)
 				}
 			}
 		} catch (error) {
@@ -52,7 +62,7 @@ const Items = ({ projectItems }) => {
 	return (
 		<>
 			{projectItems.map((data) => {
-				const { id, img, category, title, description, newprice, price, link } = data;
+				const { id, img, category, title, description, newprice, price } = data;
 				const amount = newprice ? newprice : price;
 				return (
 					<motion.div layout animate={{ opacity: 1, scale: 1 }} initial={{ opacity: 0.8, scale: 0.6 }} exit={{ opacity: 1, scale: 1 }} transition={{ duration: 0.3 }} key={id} className="portfolio_items card card-two">
@@ -67,9 +77,9 @@ const Items = ({ projectItems }) => {
 								{newprice && <del className="price">₹{price}</del>}
 								<span className="newprice">₹{amount}</span>
 							</h4>
-							<a href={link} target="blank" className="link2 link-hover" onClick={() => handleBuy(amount)}>
+							<span className="link2 link-hover" onClick={() => handleBuy(amount, id, title, category)}>
 								Buy Now <FaArrowRight className="link_icon2"></FaArrowRight>
-							</a>
+							</span>
 						</div>
 						<img src={shapeTwo} alt="" className="shape c_shape" />
 					</motion.div>

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 const host = process.env.REACT_APP_HOST;
 //* Make Api Requests
 
@@ -201,4 +202,34 @@ export const checkoutHandler = async (amount) => {
 	} catch (error) {
 		return Promise.reject({ error });
 	}
+};
+
+//* password validation
+export const validatePassword = (password) => {
+	// Check the length
+	if (password.length < 8) {
+		toast.warn("Password must be at least 8 characters long.");
+		return false;
+	}
+
+	// Check for at least one uppercase letter
+	if (!/[A-Z]/.test(password)) {
+		toast.warn("Password must include at least one uppercase letter.");
+		return false;
+	}
+
+	// Check for at least one lowercase letter
+	if (!/[a-z]/.test(password)) {
+		toast.warn("Password must include at least one lowercase letter.");
+		return false;
+	}
+
+	// Check for at least one special character
+	if (!/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(password)) {
+		toast.warn("Password must include at least one special character.");
+		return false;
+	}
+
+	// All criteria passed
+	return true;
 };

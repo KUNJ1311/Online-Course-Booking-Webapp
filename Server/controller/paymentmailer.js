@@ -408,7 +408,7 @@ export const reciptmail = async (fullname, course, amount, email, reference_id) 
   <![endif]-->
   </head>
   <body>
-    <span class="preheader">This is a receipt for your recent purchase on {{ purchase_date }}. No payment is due with this receipt.</span>
+    <span class="preheader">This is a receipt for your recent purchase on ${date}. No payment is due with this receipt.</span>
     <table class="email-wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation">
       <tr>
         <td align="center">

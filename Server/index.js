@@ -31,6 +31,7 @@ app.get("/", (req, res) => {
 //* api routes
 app.use("/api", router);
 app.use("/payment", paymentrouter);
+
 //* Start Server only when valid connection
 connect()
 	.then(() => {

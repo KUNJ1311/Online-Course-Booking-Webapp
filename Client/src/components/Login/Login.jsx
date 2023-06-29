@@ -3,7 +3,7 @@ import avatar from "./avatar.svg";
 import { useNavigate } from "react-router-dom";
 import { IoLockClosed } from "react-icons/io5";
 import { MdMail } from "react-icons/md";
-import { verifyPassword } from "../helper/helper";
+import { validatePassword, verifyPassword } from "../helper/helper";
 import { toast } from "react-toastify";
 import userContext from "../context/userContext";
 
@@ -22,11 +22,13 @@ const Login = ({ OnForget }) => {
 	const handleLogin = async (e) => {
 		e.preventDefault();
 		try {
-			const { data } = await verifyPassword(credentials);
-			setShowModal(false);
-			localStorage.setItem("coderToken", data.token);
-			Navigate("/mainapp");
-			toast.success("Logged in successfully..!");
+			if (validatePassword(credentials.password)) {
+				const { data } = await verifyPassword(credentials);
+				setShowModal(false);
+				localStorage.setItem("coderToken", data.token);
+				Navigate("/mainapp");
+				toast.success("Logged in successfully..!");
+			}
 		} catch (error) {
 			toast.error("Wrong Credentials..!");
 		}

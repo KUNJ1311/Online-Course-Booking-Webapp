@@ -3,7 +3,7 @@ import { IoLockClosed } from "react-icons/io5";
 import userContext from "../context/userContext";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { resetPassword, verifyPassword } from "../helper/helper";
+import { resetPassword, validatePassword, verifyPassword } from "../helper/helper";
 
 const ChangePass = () => {
 	const Navigate = useNavigate();
@@ -20,22 +20,24 @@ const ChangePass = () => {
 	const ChangePass = async (e) => {
 		try {
 			e.preventDefault();
-			if (password === repassword) {
-				const { data, status } = await resetPassword({ email, password });
-				if (status === 201) {
-					const { data, status } = await verifyPassword({ email, password });
-					if (status === 200) {
-						localStorage.setItem("coderToken", data.token);
-						setShowModal(false);
-						Navigate("/mainapp");
+			if (validatePassword(credentials.password)) {
+				if (password === repassword) {
+					const { data, status } = await resetPassword({ email, password });
+					if (status === 201) {
+						const { data, status } = await verifyPassword({ email, password });
+						if (status === 200) {
+							localStorage.setItem("coderToken", data.token);
+							setShowModal(false);
+							Navigate("/mainapp");
+						}
+						toast.success("Password Changed Successfully..!");
+					} else {
+						Navigate("/");
+						toast.error(data?.error?.error || "Please, Try Again..!");
 					}
-					toast.success("Password Changed Successfully..!");
 				} else {
-					Navigate("/");
-					toast.error(data?.error?.error || "Please, Try Again..!");
+					toast.warn("Passwords doesn't match..!");
 				}
-			} else {
-				toast.warn("Passwords doesn't match..!");
 			}
 		} catch (error) {
 			toast.error(error?.error?.response?.data?.error || "Server Error..!");

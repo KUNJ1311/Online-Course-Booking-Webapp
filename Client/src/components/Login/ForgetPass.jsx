@@ -46,7 +46,7 @@ const ForgetPass = ({ OnSend }) => {
 					<div className="infield">
 						<MdMail className="icon-login" />
 						<input onChange={onChange} type="email" placeholder="Email" name="email" value={credentials.email} />
-						<label></label>
+						<span className="lable-main"></span>
 					</div>
 					<button type="submit" className="robtn" style={{ marginTop: "15px" }}>
 						Send OTP

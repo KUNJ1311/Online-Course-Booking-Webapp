@@ -64,32 +64,32 @@ const Form = ({ data, setFormSubmitted, name, update, onCancle }) => {
 				<div className="infield">
 					<RiUser3Fill className="icon-login" />
 					<input type="text" readOnly value={credentials.username} name="username" placeholder="Username" />
-					<span></span>
+					<span className="lable-main"></span>
 				</div>
 				<div className="infield">
 					<MdMail className="icon-login" />
 					<input type="email" readOnly value={credentials.email} placeholder="Email" name="email" />
-					<span></span>
+					<span className="lable-main"></span>
 				</div>
 				<div className="infield">
 					<FaUserCircle className="icon-login" />
 					<input type="text" onChange={onChange} value={credentials.fullname} name="fullname" placeholder="Full Name" />
-					<span></span>
+					<span className="lable-main"></span>
 				</div>
 				<div className="infield">
 					<RiPhoneFill className="icon-login" />
 					<input type="number" onChange={onChange} value={credentials.phone} name="phone" placeholder="Phone No." />
-					<span></span>
+					<span className="lable-main"></span>
 				</div>
 				<div className="infield">
 					<FaUniversity className="icon-login" />
 					<input type="text" onChange={onChange} value={credentials.college} name="college" placeholder="College" />
-					<span></span>
+					<span className="lable-main"></span>
 				</div>
 				<div className="infield">
 					<IoLocationSharp className="icon-login" />
 					<textarea rows={3} type="text" onChange={onChange} value={credentials.address} name="address" placeholder="Address" />
-					<span></span>
+					<span className="lable-main"></span>
 				</div>
 				<div className="btn2">
 					<button className="robtn mt-2 mr-4 btnn" type="submit">

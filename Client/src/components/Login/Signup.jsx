@@ -30,17 +30,17 @@ const Signup = ({ OnRegister }) => {
 					<div className="infield">
 						<RiUser3Fill className="icon-login" />
 						<input type="text" onChange={onChange} value={credentials.username} name="username" placeholder="Username" />
-						<label></label>
+						<span className="lable-main"></span>
 					</div>
 					<div className="infield">
 						<MdMail className="icon-login" />
 						<input type="email" onChange={onChange} value={credentials.email} placeholder="Email" name="email" />
-						<label></label>
+						<span className="lable-main"></span>
 					</div>
 					<div className="infield">
 						<IoLockClosed className="icon-login" />
 						<input type="password" onChange={onChange} value={credentials.password} name="password" placeholder="Password" />
-						<label></label>
+						<span className="lable-main"></span>
 					</div>
 					<button className="robtn" type="submit">
 						Register

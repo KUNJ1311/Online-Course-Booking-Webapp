@@ -168,12 +168,21 @@ h1.h {
 	outline: none;
 	display: flex;
 }
-
-.form-login input:focus ~ span {
+.form-login .lable-main {
+	position: absolute;
+	left: 50%;
+	top: 100%;
+	transform: translateX(-50%);
+	width: 0%;
+	height: 2px;
+	background: var(--linear-grad);
+	transition: 0.3s ease-in-out;
+}
+.form-login input:focus ~ .lable-main {
 	width: 100%;
 }
 
-.form-login textarea:focus ~ span {
+.form-login textarea:focus ~ .lable-main {
 	width: 100%;
 }
 

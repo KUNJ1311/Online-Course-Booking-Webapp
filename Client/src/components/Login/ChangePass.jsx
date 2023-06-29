@@ -51,12 +51,12 @@ const ChangePass = () => {
 					<div className="infield">
 						<IoLockClosed className="icon-login" />
 						<input onChange={onChange} value={credentials.password} name="password" type="password" placeholder="New Password" />
-						<label></label>
+						<span className="lable-main"></span>
 					</div>
 					<div className="infield mb-4">
 						<IoLockClosed className="icon-login" />
 						<input onChange={onChange} value={credentials.repassword} name="repassword" type="password" placeholder="Confirm Password" />
-						<label></label>
+						<span className="lable-main"></span>
 					</div>
 					<button type="submit" className="robtn">
 						Change

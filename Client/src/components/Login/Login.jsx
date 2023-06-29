@@ -48,12 +48,12 @@ const Login = ({ OnForget }) => {
 				<div className="infield">
 					<MdMail className="icon-login" />
 					<input onChange={onChange} type="email" placeholder="Email" name="email" value={credentials.email} />
-					<label className="lable-main"></label>
+					<span className="lable-main"></span>
 				</div>
 				<div className="infield">
 					<IoLockClosed className="icon-login" />
 					<input onChange={onChange} name="password" type="password" value={credentials.password} placeholder="Password" />
-					<label className="lable-main"></label>
+					<span className="lable-main"></span>
 				</div>
 				<span className="forgot">
 					Forgot Password?<span onClick={handleForget}> Recover Now</span>

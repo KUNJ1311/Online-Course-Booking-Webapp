@@ -31,7 +31,7 @@ const Items = ({ projectItems }) => {
 						key,
 						amount: order.amount,
 						currency: "INR",
-						name: "DC4 IT SOLUTIONS",
+						name: category + " - " + title,
 						description: "Transaction",
 						image: "https://avatars.githubusercontent.com/u/74526794?v=4",
 						order_id: order.id,

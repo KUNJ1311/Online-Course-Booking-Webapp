@@ -17,6 +17,9 @@
 	font-family: var(--app-font);
 	color: white;
 	background-image: var(--third-gradient);
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
 }
 .portfolio button {
 	border: none;
@@ -114,8 +117,10 @@
 .portfolio_img-wrapper {
 	border-radius: 12px;
 	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
-
 .portfolio_img {
 	height: 210px;
 	width: 100%;
@@ -207,7 +212,7 @@
 	width: 141px;
 	height: 141px;
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1100px) {
 	.portfolio_container {
 		grid-template-columns: repeat(2, 1fr);
 		gap: 20px;
@@ -223,5 +228,10 @@
 	}
 	.portfolio_list-item {
 		font-size: 12px;
+	}
+}
+@media screen and (max-width: 400px) {
+	.portfolio_list {
+		column-gap: 9px;
 	}
 }

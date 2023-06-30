@@ -16,7 +16,7 @@ const ChangePass = () => {
 		setCredentials({ ...credentials, [e.target.name]: e.target.value });
 	};
 
-	//* change pass func.
+	//* change pass function
 	const ChangePass = async (e) => {
 		try {
 			e.preventDefault();

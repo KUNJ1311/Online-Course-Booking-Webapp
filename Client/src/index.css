@@ -28,6 +28,7 @@ textarea {
 }
 
 #root {
+	background: var(--linear-grad);
 	display: flex;
 	flex-direction: column;
 }

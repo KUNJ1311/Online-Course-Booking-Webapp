@@ -38,7 +38,7 @@ export const paymentVerification = async (req, res) => {
 					product_id,
 					amount: Number(amount) / 100,
 				});
-				res.redirect(`http://localhost:3000/mainapp?reference=${razorpay_payment_id}`);
+				res.redirect(`${ENV.HOST}/mainapp?reference=${razorpay_payment_id}`);
 				const reference_id = razorpay_payment_id;
 				await reciptmail(fullname, course, amount, email, reference_id);
 			} else {

@@ -136,6 +136,10 @@
 		transition: all 0.5s ease;
 	}
 
+	.nav-logo {
+		font-size: 1.7rem;
+	}
+
 	.nav-menu.active {
 		background: #1f5156;
 		left: 0px;
@@ -161,8 +165,25 @@
 		cursor: pointer;
 		margin-right: 20px;
 	}
+	.footer-distributed h3 {
+		font-size: 28px;
+	}
 }
 
+@media screen and (max-width: 360px) {
+	.nav-logo {
+		font-size: 1.3rem;
+	}
+	.footer-distributed h3 {
+		font-size: 23px;
+	}
+}
+
+@media screen and (max-width: 250px) {
+	.nav-logo {
+		font-size: 1rem;
+	}
+}
 .profile-ico {
 	display: flex;
 	margin: 0 !important;

@@ -179,3 +179,12 @@
 .wrapperAlert button:hover {
 	background-color: #46c296;
 }
+@media screen and (max-width: 500px) {
+	.wrapperAlert {
+		width: 300px;
+		height: 530px;
+	}
+	.topHalf h1 {
+		font-size: 2rem;
+	}
+}

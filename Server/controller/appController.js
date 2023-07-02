@@ -62,8 +62,8 @@ export async function register(req, res) {
 		const { username, email, password } = req.body;
 		if (password) {
 			const hashedPassword = await bcrypt.hash(password, 10);
-
 			const otpData = await DCOtpModel.findOne({ email });
+
 			if (!otpData || !otpData.verified || otpData.expiresIn < new Date(Date.now())) {
 				//* return error response if OTP is not verified
 				return res.status(401).send({ error: "Please verify your OTP first" });
@@ -114,6 +114,7 @@ export async function login(req, res) {
 		return res.status(500).send({ error });
 	}
 }
+
 //? POST: http://localhost:8080/api/registerform
 export async function regform(req, res) {
 	const { email, fullname, phone, college, address } = req.body;

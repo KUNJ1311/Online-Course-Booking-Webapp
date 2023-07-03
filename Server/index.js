@@ -4,6 +4,7 @@ import morgan from "morgan";
 import connect from "./database/conn.js";
 import router from "./routes/route.js";
 import paymentrouter from "./routes/payment.js";
+import adminroute from "./routes/adminroute.js";
 import Razorpay from "razorpay";
 import ENV from "./config.js";
 import bodyParser from "body-parser";
@@ -30,7 +31,8 @@ app.get("/", (req, res) => {
 
 //* api routes
 app.use("/api", router);
-app.use("/payment", paymentrouter);
+app.use("/api/payment", paymentrouter);
+app.use("/api/admin", adminroute);
 
 //* Start Server only when valid connection
 connect()

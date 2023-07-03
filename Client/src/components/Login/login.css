@@ -17,6 +17,10 @@
 	font-family: var(--second-font);
 }
 
+.second-font {
+	font-family: var(--second-font);
+}
+
 .container {
 	position: relative;
 	border-radius: 10px;

@@ -187,7 +187,7 @@ export const checkoutHandler = async (amount) => {
 	try {
 		const token = localStorage.getItem("coderToken");
 		const { data, status } = await axios.post(
-			`${host}/payment/checkout`,
+			`${host}/api/payment/checkout`,
 			{
 				amount,
 			},

@@ -12,7 +12,7 @@ const Items = ({ projectItems }) => {
 		try {
 			const {
 				data: { key },
-			} = await axios.get(`${host}/payment/getkey`);
+			} = await axios.get(`${host}/api/payment/getkey`);
 			const {
 				data: { order },
 				status,
@@ -35,7 +35,7 @@ const Items = ({ projectItems }) => {
 						description: "Transaction",
 						image: "https://avatars.githubusercontent.com/u/74526794?v=4",
 						order_id: order.id,
-						callback_url: `${host}/payment/paymentverification?${callbackParams.toString()}`,
+						callback_url: `${host}/api/payment/paymentverification?${callbackParams.toString()}`,
 						prefill: {
 							name: data.fullname,
 							email: data.email,

@@ -3,7 +3,7 @@ import ENV from "../config.js";
 import DCAdminModel from "../model/Admin.model.js";
 
 //* auth middleware
-export default async function Auth(req, res, next) {
+export default async function AdminAuth(req, res, next) {
 	try {
 		//* access authorize header to validate request
 		const token = req.headers.authorization.split(" ")[1];

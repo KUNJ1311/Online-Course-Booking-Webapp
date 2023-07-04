@@ -3,10 +3,11 @@ import avatar from "../Login/avatar.svg";
 import { useNavigate } from "react-router-dom";
 import { IoLockClosed } from "react-icons/io5";
 import { MdMail } from "react-icons/md";
-import { validatePassword, verifyPassword } from "../helper/helper";
+import { validatePassword } from "../helper/helper";
 import { toast } from "react-toastify";
+import { adminLogin } from "../helper/adminhelper";
 
-const Login = () => {
+const AdminLogin = () => {
 	let Navigate = useNavigate();
 	const [credentials, setCredentials] = useState({ email: "", password: "" });
 
@@ -15,9 +16,9 @@ const Login = () => {
 		e.preventDefault();
 		try {
 			if (validatePassword(credentials.password)) {
-				const { data } = await verifyPassword(credentials);
-				localStorage.setItem("coderToken", data.token);
-				Navigate("/mainapp");
+				const { data } = await adminLogin(credentials);
+				localStorage.setItem("AdminToken", data.token);
+				Navigate("/adminapp");
 				toast.success("Logged in successfully..!");
 			}
 		} catch (error) {
@@ -60,4 +61,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default AdminLogin;

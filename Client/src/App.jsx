@@ -1,5 +1,6 @@
 import Home from "./components/Home/Home";
 import MainApp from "./components/MainApp/MainApp";
+import AdminHome from "./components/Admin/AdminHome/AdminHome";
 import Login from "./components/Login/Login";
 import AdminLogin from "./components/Admin/AdminLogin";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -7,6 +8,7 @@ import UserState from "./components/context/UserState";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthorizeUser } from "./components/middleware/auth";
+import { AuthorizeAdmin } from "./components/middleware/adminauth";
 function App() {
 	return (
 		<>
@@ -25,6 +27,15 @@ function App() {
 								<AuthorizeUser>
 									<MainApp />
 								</AuthorizeUser>
+							}
+						/>
+						{/* Authorized Admin Routes */}
+						<Route
+							path="/adminapp"
+							element={
+								<AuthorizeAdmin>
+									<AdminHome />
+								</AuthorizeAdmin>
 							}
 						/>
 					</Routes>

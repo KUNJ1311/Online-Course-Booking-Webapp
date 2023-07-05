@@ -17,7 +17,7 @@ const AdminLogin = () => {
 		try {
 			if (validatePassword(credentials.password)) {
 				const { data } = await adminLogin(credentials);
-				localStorage.setItem("AdminToken", data.token);
+				localStorage.setItem("adminToken", data.token);
 				Navigate("/adminapp");
 				toast.success("Logged in successfully..!");
 			}

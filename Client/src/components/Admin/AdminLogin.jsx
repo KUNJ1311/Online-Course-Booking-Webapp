@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import avatar from "../Login/avatar.svg";
 import { useNavigate } from "react-router-dom";
 import { IoLockClosed } from "react-icons/io5";
@@ -31,6 +31,16 @@ const AdminLogin = () => {
 		setCredentials({ ...credentials, [e.target.name]: e.target.value });
 	};
 
+	//* Check Token to redirect user to main app
+	useEffect(() => {
+		async function checkToken() {
+			const token = localStorage.getItem("adminToken");
+			if (token) {
+				Navigate("/adminapp");
+			}
+		}
+		checkToken();
+	});
 	return (
 		<div className="d-flex second-font" style={{ width: "100vw", height: "100vh" }}>
 			<div className="scroll-container" style={{ overflowY: "auto" }}>

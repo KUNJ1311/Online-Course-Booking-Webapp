@@ -479,11 +479,11 @@ export const reciptmail = async (fullname, course, amount, email, reference_id) 
                   <tr>
                     <td class="content-cell" align="center">
                       <p class="f-fallback sub align-center">
-                        DC4 IT SOLUTIONS
-                        <br>43 Brahmani Vijay,
+                        LOGO
+                        <br>12 Lorem, ipsum,
                         <br>
-NR.Prabhat Chowk, Ghatlodia,<br>
-Ahmedabad, Gujarat (380061) india
+Lorem ipsum dolor sit amet,<br>
+Ahmedabad, Gujarat (380050) india
                       </p>
                     </td>
                   </tr>

@@ -11,7 +11,7 @@ const Footer = () => {
 	return (
 		<footer className="footer-distributed">
 			<div className="footer-left">
-				<h3>DC4 IT SOLUTIONS</h3>
+				<h3>LOGO</h3>
 				<p className="footer-company-name">
 					Developed &amp; Designed by <a href="https://github.com/KUNJ1311">Kunj Faladu</a> &copy; 2023
 				</p>

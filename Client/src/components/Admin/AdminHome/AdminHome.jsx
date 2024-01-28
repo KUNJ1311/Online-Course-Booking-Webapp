@@ -24,7 +24,7 @@ const AdminHome = () => {
 						duration={500}
 						className="nav-logo"
 					>
-						DC4 IT SOLUTIONS
+						LOGO
 					</Link>
 					<ul>
 						<li className="p-ico">

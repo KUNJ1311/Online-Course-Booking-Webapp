@@ -17,7 +17,7 @@ export const registerMail = async (req, res) => {
 	let message = {
 		from: ENV.EMAIL,
 		to: userEmail,
-		subject: subject || "OTP By DC4 IT SOLUTIONS",
+		subject: subject || "OTP By LOGO",
 		html: `
 			<!DOCTYPE html>
 			<html lang="en">
@@ -110,7 +110,7 @@ export const registerMail = async (req, res) => {
 						<tr>
 							<td class="footer" colspan="2">
 								<p>If you didn't request this OTP, please ignore this email.</p>
-								<p>Best regards,<br><strong>DC4 IT SOLUTIONS</strong></p>
+								<p>Best regards,<br><strong>LOGO</strong></p>
 							</td>
 						</tr>
 					</table>

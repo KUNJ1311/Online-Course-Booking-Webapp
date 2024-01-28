@@ -62,7 +62,7 @@ const Nav = ({ data, setFormSubmitted }) => {
 						duration={500}
 						className="nav-logo"
 					>
-						DC4 IT SOLUTIONS
+						LOGO
 					</Link>
 					<ul className={click ? "nav-menu active" : "nav-menu"}>
 						<li className={active === 1 ? "nav-item-active nav-item" : "nav-item"}>
